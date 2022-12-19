@@ -248,22 +248,22 @@ def is_in_2d_polygon(point, vertices):
 
 if __name__ == '__main__':
 
-    # # 爬取图片
-    # start = time()
-    # BingImagesSpider('人行街道', 5, 'images_spider').run()
-    # print(time() - start)
+    # 爬取图片
+    start = time()
+    BingImagesSpider('人行街道', 2, 'images_spider').run()
+    print(time() - start)
 
 
     get = GetCaptcha()
-    get.get_number_and_letter('character/number_and_letter',num=5,num_img=5)
-    get.get_pure_letter('character/pure_letter',num=5,num_img=5)
-    get.get_pure_number('character/pure_number',num=5,num_img=5)
+    get.get_number_and_letter('character/number_and_letter',num=5,num_img=2)
+    get.get_pure_letter('character/pure_letter',num=5,num_img=2)
+    get.get_pure_number('character/pure_number',num=5,num_img=2)
 
-    get_number_operations('character/number_operations',num_img=5)
+    get_number_operations('character/number_operations',num_img=2)
 
-    get_behavior_drag('behavior/behavior_drag/captcha',num_captcha=5)
+    get_behavior_drag('behavior/behavior_drag/captcha',num_captcha=2)
 
-    get_behavior_rotate('behavior/behavior_rotate/background.png', 'behavior/behavior_rotate/captcha', num_captcha=5)
+    get_behavior_rotate('behavior/behavior_rotate/background.png', 'behavior/behavior_rotate/captcha', num_captcha=2)
     
     get_behavior_object_recognition('behavior/behavior_object_recognition/test.png',
                                     [[250,240],[120,360],[490,360],[360,240]], # zebra crossing
