@@ -23,7 +23,7 @@ getcap是一个验证码生成库，目的是为其他开发人员提供验证�
 
 #### 安装
 1.  `git clone https://gitee.com/openeuler/ai-tools.git`
-2.  在 `ai-tools/example/。。。 `文件夹下执行如下命令
+2.  在 `ai-tools/example/captchaRecog-pytorch/get_captcha `文件夹下执行如下命令
 3.  `python3 setup.py build`
 4.  `python3 setup.py install`
 #### 使用
@@ -33,7 +33,7 @@ getcap是一个验证码生成库，目的是为其他开发人员提供验证�
 	- GetCaptcha生成验证码图片：
 		- 生成数字与字母组合的验证码：`GetCaptcha().get_number_and_letter("datasets",num=5,num_img=5)`
 
-3. 使用示例：`ai-tools/example/。。。 `文件夹下执行`python test.py`
+3. 使用示例：`ai-tools/example/captchaRecog-pytorch/get_captcha`文件夹下执行`python test.py`
 4. 验证码结果命名规则：
 	- `get_number_and_letter()`：`真值_序号.png`
 	- `get_pure_letter()`：`真值_序号.png`
