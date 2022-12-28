@@ -8,8 +8,8 @@ from captcha.image import ImageCaptcha
 from torch import nn
 from torch.utils.data import DataLoader
 from dataloader import DLoader
-from model.vgg import vgg
-from model.resnet import resnet
+from deploy_server.model.vgg import vgg
+from deploy_server.model.resnet import resnet
 from tqdm import tqdm
 
 
@@ -107,7 +107,7 @@ def main(args):
             pbar.update(1)
 
         pbar.close()
-        torch.save(model,"model_weights.pth")
+        torch.save(model.state_dict(),"model_weights.pth")
         lr_scheduler.step()
         print('epoch {} : End training.'.format(epoch + 1))
 

@@ -9,7 +9,8 @@ from PIL import Image
 from torch.utils.data import DataLoader
 import util.one_hot as one_hot
 from captcha.image import ImageCaptcha
-
+from deploy_server.model.vgg import vgg
+from deploy_server.model.resnet import resnet
 
 def get_test_dataset(data_path, cap_array, num_list=[4,5,6], num_per=500):
     image = ImageCaptcha(width=160,height=80)
@@ -23,6 +24,7 @@ def get_test_dataset(data_path, cap_array, num_list=[4,5,6], num_per=500):
 def get_args_parser():
     parser = argparse.ArgumentParser('Set CAPTCHA recognition', add_help=False)
     parser.add_argument('--device', default='cpu', type=str, help='Device to use for training / testing. Set cuda for GPU device or cpu for CPU device')
+    parser.add_argument('--model', default='ResNet18', type=str, help='Selection of identification model, options ResNet18/34/50/101 and VGG11/13/16/19.')
     parser.add_argument('--model_path', default='', type=str, help='Path of model file.')
     parser.add_argument('--dataset_path', default='', type=str, help='If not specified, the testing data set will be automatically generated.')
     parser.add_argument('--cap_array', default='0123456789', type=str, help='The content of the verification code.')
@@ -31,10 +33,19 @@ def get_args_parser():
 
 def pred_pics(args):
     captcha_array = args.cap_array + '#'
+    out_size = 6 * captcha_array.__len__()
     print('load model.')
     device = torch.device(args.device)
-    m = torch.load(args.model_path, map_location=device)
+    state_dict = torch.load(args.model_path, map_location=device)
+    
+    if args.model[0] == 'R':
+        m = resnet(model_name=args.model, num_classes=out_size)
+    elif args.model[0] == 'V':
+        m = vgg(model_name=args.model, num_classes=out_size)
+    else:
+        raise ValueError('could not find model : {}'.format(args.model))
     if args.device == 'cuda' : m = m.cuda()
+    m.load_state_dict(state_dict)
     print('load success.')
     
     if args.dataset_path == '':
@@ -65,10 +76,19 @@ def pred_pics(args):
 
 def pred_pic(args):
     captcha_array = args.cap_array + '#'
+    out_size = 6 * captcha_array.__len__()
     print('load model.')
-    dev  = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = torch.load(args.model_path, map_location=dev)
+    device = torch.device(args.device)
+    state_dict = torch.load(args.model_path, map_location=device)
+    
+    if args.model[0] == 'R':
+        model = resnet(model_name=args.model, num_classes=out_size)
+    elif args.model[0] == 'V':
+        model = vgg(model_name=args.model, num_classes=out_size)
+    else:
+        raise ValueError('could not find model : {}'.format(args.model))
     if args.device == 'cuda' : model = model.cuda()
+    model.load_state_dict(state_dict)
     print('load success.')
 
     while True:

@@ -7,11 +7,14 @@ import util.one_hot as one_hot
 
 class DLoader(Dataset):
     def __init__(self,root_dir,captcha_array,captcha_size=6,test=False):
-       super(DLoader, self).__init__()
-       self.list_image_path = [ os.path.join(root_dir,image_name) for image_name in os.listdir(root_dir)]
-       self.test = test
-       self.captcha_array = captcha_array
-       self.captcha_size = captcha_size
+        super(DLoader, self).__init__()
+        self.list_image_path = []
+        for image_name in os.listdir(root_dir):
+            if image_name.split('.')[-1] == 'png': 
+                self.list_image_path.append(os.path.join(root_dir,image_name))
+        self.test = test
+        self.captcha_array = captcha_array
+        self.captcha_size = captcha_size
 
     def __getitem__(self, index):
         image_path = self.list_image_path[index]
