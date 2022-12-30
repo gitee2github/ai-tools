@@ -290,6 +290,10 @@ openEuler-22.03-LTS + pytorch-1.6.0（`https://gitee.com/src-openeuler/pytorch.g
 	
 	服务端会及时将接收的验证码图片保存到`/root/ai-tools/recogcap/resources/received_images`，并把预测结果返回给客户端，同时产生一条日志信息。
 
+	- 使用自己训练的权重文件
+
+	只需修改`--model_path`为自己的权重文件路径即可，例如`/root/ai-tools/recogcap/resources/weights/model_weights.pth`，然后修改模型对应的参数`--model`和`--cap_array`即可。
+
 2. 基于rpm包安装运行
 
 	- 下载rpm包
@@ -315,8 +319,14 @@ openEuler-22.03-LTS + pytorch-1.6.0（`https://gitee.com/src-openeuler/pytorch.g
      ```
 	
 	如果需要修改配置，可直接修改配置文件：`/root/ai-tools/recogcap/etc/recogcap-s.conf`，然后`systemctl restart recogcap-s.service`
+
+	- 使用自己训练的权重文件
+
+	只需修改配置文件：`/root/ai-tools/recogcap/etc/recogcap-s.conf`中`model_path=`自己的权重文件路径即可，例如`/root/ai-tools/recogcap/resources/weights/model_weights.pth`，然后修改模型对应的参数`model`和`cap_array`项即可。
 	
-	日志和运行结果同**1.基于源码编译、安装、运行**
+	- 日志和运行结果
+	
+	同**1.基于源码编译、安装、运行**
 #### recogcap-c 验证码识别客户端部署
 
 1. 基于源码编译、安装、运行
