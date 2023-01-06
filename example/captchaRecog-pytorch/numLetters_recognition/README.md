@@ -1,6 +1,6 @@
 # recogcap
 ## 介绍
-本项目旨在基于openEuler实现验证码识别功能，做为openEuler的基本AI能力级。目前本项目利用数字字母以及占位符的one-hot编码，可以实现4、5、6（可根据需求自己设置）位数字字母组合的验证码识别功能。训练和验证数据集来自python的captcha库的生成以及一部分网络数据集。
+本子项目利用数字字母以及占位符的one-hot编码，可以实现4、5、6（可根据需求自己设置）位数字字母组合的验证码识别功能。训练和验证数据集来自python的captcha库的生成以及一部分网络数据集。
 ## 环境
 openEuler-22.03-LTS + pytorch-1.6.0（`https://gitee.com/src-openeuler/pytorch.git`）详见requirements.txt
 ## 目录结构
