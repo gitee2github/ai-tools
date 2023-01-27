@@ -12,7 +12,7 @@ from captcha.image import ImageCaptcha
 from deploy_server.model.vgg import vgg
 from deploy_server.model.resnet import resnet
 
-def get_test_dataset(data_path, cap_array, num_list=[4,5,6], num_per=500):
+def get_test_dataset(data_path, cap_array='123456789', num_list=[4,5,6], num_per=500):
     image = ImageCaptcha(width=160,height=80)
     for num in num_list:
         for i in range(num_per):
@@ -49,7 +49,7 @@ def pred_pics(args):
     print('load success.')
     
     if args.dataset_path == '':
-        get_test_dataset('dataset/test', args.cap_array, num_list=[4,5,6], num_per=500)
+        get_test_dataset('dataset/test', cap_array='123456789', num_list=[4,5,6], num_per=500)
         test_data = dataloader.DLoader('dataset/test',captcha_array,test=True)
     else:
         test_data = dataloader.DLoader(args.dataset_path,captcha_array,test=True)

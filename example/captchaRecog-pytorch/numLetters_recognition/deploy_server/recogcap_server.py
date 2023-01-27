@@ -21,7 +21,7 @@ def get_args_parser():
     parser.add_argument('--port', default=5000, type=int)
     parser.add_argument('--model', default='ResNet18', type=str, help='Selection of identification model, options ResNet18/34/50/101 and VGG11/13/16/19.')
     parser.add_argument('--model_path', default='', type=str, help='Path of model file.')
-    parser.add_argument('--cap_array', default='0123456789abcdefghijklmnopqrstuvwxyz', type=str, help='The content of the verification code.')
+    parser.add_argument('--cap_array', default='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', type=str, help='The content of the verification code.')
 
     return parser
 

@@ -32,7 +32,7 @@ def get_args_parser():
     parser.add_argument('--device', default='cuda', type=str, help='Device to use for training / testing. Set cuda for GPU device or cpu for CPU device')
     parser.add_argument('--model', default='ResNet18', type=str, help='Selection of identification model, options ResNet18/34/50/101 and VGG11/13/16/19.')
     parser.add_argument('--dataset_path', default='', type=str, help='If not specified, the training data set will be automatically generated.')
-    parser.add_argument('--cap_array', default='0123456789', type=str, help='The content of the verification code.')
+    parser.add_argument('--cap_array', default='123456789', type=str, help='The content of the verification code.')
     parser.add_argument('--batch_size', default=64, type=int)
     parser.add_argument('--train_lr', default=1e-3, type=float)
     parser.add_argument('--num_epoch', default=50, type=int)

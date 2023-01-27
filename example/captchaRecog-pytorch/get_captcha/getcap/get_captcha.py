@@ -42,7 +42,7 @@ class GetCaptcha():
     @return 无
     '''
     def get_number_and_letter(self, save_path, num=4, num_img=1):
-        self.get_base(save_path,list("0123456789abcdefghijklmnopqrstuvwxyz"), num, num_img)
+        self.get_base(save_path,list("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), num, num_img)
 
     '''
     @description 生成纯字母的4、5、6位验证码
@@ -52,7 +52,7 @@ class GetCaptcha():
     @return 无
     '''
     def get_pure_letter(self, save_path, num=4, num_img=1):
-        self.get_base(save_path,list("abcdefghijklmnopqrstuvwxyz"), num, num_img)
+        self.get_base(save_path,list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), num, num_img)
 
     '''
     @description 生成纯数字的4、5、6位验证码
