@@ -16,7 +16,7 @@
      ```
 	- 下载模型文件
 
-	链接：`https://pan.baidu.com/s/1c1sl4tGpEzXdWam1Xwe5BA` 提取码：`1k54`
+	链接：`https://pan.baidu.com/s/1pwnqq14rhQyR549-3qbEdg`， 提取码：`ikuu`
 
 	将模型文件`model_weights.pth`放到`ai-tools/example/captchaRecog-pytorch/numLetters_recognition/deploy_server/resources/weights`
 	
@@ -111,17 +111,46 @@
 
 2. 基于rpm包安装运行
 
+	- 生成rpm包
+	
+		1）安装rpmbuild工具，生成rpmbuild相关目录
+	
+		```
+		yum install rpmdevtools
+		```
+	
+		```
+		yum install -y rpm-build
+		```
+	
+		```
+		rpmdev-setuptree
+		```
+		
+		默认情况下，生成的rpmbuild相关目录在`/root/rpmbuild`
+		
+		2）放置源码文件及.spec文件
+	
+		```
+		/usr/bin/python3 setup-s.py sdist --formats=gztar
+		```
+		
+		将生成的`dist/recogcap-s-1.0.0.tar.gz`拷贝到`/root/rpmbuild/SOURCES`，将`deploy_server/rpm/recogcap-s.spec`拷贝到`/root/rpmbuild/SPECS`
+		
+		3）打包
+
+		```
+		rpmbuild -ba /root/rpmbuild/SPECS/recogcap-s.spec
+		```
+		
+		生成的.rpm包在`/root/rpmbuild/RPMS`
+		
+
 	- 下载rpm包
 
-	 ```
-     git clone https://gitee.com/openeuler/ai-tools.git
-     ```
+	 链接：`https://pan.baidu.com/s/1pwnqq14rhQyR549-3qbEdg` 提取码：`ikuu`
 
 	- 安装
-	
-	 ```
-     cd ai-tools/example/captchaRecog-pytorch/numLetters_recognition/dist
-     ```
 
      ```
      yum install recogcap-s-1.0.0-1.noarch.rpm
@@ -198,20 +227,20 @@
 
 2. 基于rpm包安装运行
 
-   - 下载rpm包
+	- 生成rpm包
 
-	 ```
-     git clone https://gitee.com/openeuler/ai-tools.git
-     ```
+	同 **recogcap-s 验证码识别服务端部署**
+
+	- 下载rpm包
+
+
+	链接：`https://pan.baidu.com/s/1pwnqq14rhQyR549-3qbEdg` 
+	提取码：`ikuu`
 
    - 安装
  
  	 ```
      /usr/bin/pip3 install captcha
-     ```
-
-	 ```
-     cd ai-tools/example/captchaRecog-pytorch/numLetters_recognition/dist
      ```
 
      ```

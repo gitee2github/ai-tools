@@ -173,7 +173,7 @@ openEuler-22.03-LTS + pytorch-1.6.0（`https://gitee.com/src-openeuler/pytorch.g
 	      <td>captcha库自动生成的</td>
 	      <td>97%</td>
 		  <td>`0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`</td>
-	      <td>链接：`https://pan.baidu.com/s/1c1sl4tGpEzXdWam1Xwe5BA` 提取码：`1k54`</td>
+	      <td>链接：`https://pan.baidu.com/s/1pwnqq14rhQyR549-3qbEdg` 提取码：`ikuu`</td>
 	    </tr>
 	  </tbody>
 	</table>
