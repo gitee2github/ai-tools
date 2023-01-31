@@ -1,0 +1,6 @@
+captcha==0.4
+lxml==4.9.2
+Pillow==9.3.0
+requests
+urllib3
+
